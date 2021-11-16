@@ -7,7 +7,7 @@
 #define COLOR_RED_R_EBAY 197.57
 #define COLOR_RED_G_EBAY 42.86
 #define COLOR_RED_B_EBAY 40.43
-#define COLOR_RED_MAX_DISTANCE_EBAY 30.7
+#define COLOR_RED_MAX_DISTANCE_EBAY 30.7 // Original is 10.7
 
 #define COLOR_GREEN_R_EBAY 106.41
 #define COLOR_GREEN_G_EBAY 106.35
@@ -28,14 +28,14 @@
 #define RIGHT 21
 #define NONE 22
 
-#define carSpeed 200
+#define carSpeed 170
 
 #define numberOfSensors 4 // Put the number of color sensors you have here!
 
-Adafruit_TCS34725 tcs[] = {Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_50MS, TCS34725_GAIN_4X),
-                           Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_50MS, TCS34725_GAIN_4X),
-                           Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_50MS, TCS34725_GAIN_4X),
-                           Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_50MS, TCS34725_GAIN_4X)};
+Adafruit_TCS34725 tcs[] = {Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_24MS, TCS34725_GAIN_4X),
+                           Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_24MS, TCS34725_GAIN_4X),
+                           Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_24MS, TCS34725_GAIN_4X),
+                           Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_24MS, TCS34725_GAIN_4X)};
 
 //Line Tracking IO define
 int colorSensor_R;
@@ -212,14 +212,14 @@ void loop()
   switch (readColor())
   {
   case LEFT:
-    left();
+    right();
     break;
   case RIGHT:
-    right();
+    left();
     break;
   default:
     forward();
     break;
   }
-  delay(50); // takes 50ms to read
+  delay(25); // takes 50ms to read
 }
