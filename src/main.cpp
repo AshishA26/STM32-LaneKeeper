@@ -28,14 +28,14 @@
 #define RIGHT 21
 #define NONE 22
 
-#define carSpeed 170
+#define carSpeed 140
 
 #define numberOfSensors 4 // Put the number of color sensors you have here!
 
-Adafruit_TCS34725 tcs[] = {Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_24MS, TCS34725_GAIN_4X),
-                           Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_24MS, TCS34725_GAIN_4X),
-                           Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_24MS, TCS34725_GAIN_4X),
-                           Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_24MS, TCS34725_GAIN_4X)};
+Adafruit_TCS34725 tcs[] = {Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_2_4MS, TCS34725_GAIN_4X),
+                           Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_2_4MS, TCS34725_GAIN_4X),
+                           Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_2_4MS, TCS34725_GAIN_4X),
+                           Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_2_4MS, TCS34725_GAIN_4X)};
 
 //Line Tracking IO define
 int colorSensor_R;
@@ -180,7 +180,7 @@ void stop()
 
 void setup()
 {
-  Serial.begin(9600);
+  Serial.begin(115200);
   Wire.begin();
   pinMode(D12, OUTPUT);
   pinMode(D11, OUTPUT);
@@ -221,5 +221,5 @@ void loop()
     forward();
     break;
   }
-  delay(25); // takes 50ms to read
+  delay(3); // takes 50ms to read
 }
