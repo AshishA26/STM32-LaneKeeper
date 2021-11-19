@@ -28,7 +28,7 @@
 #define RIGHT 21
 #define NONE 22
 
-#define carSpeed 140
+#define carSpeed 165
 
 #define numberOfSensors 4 // Put the number of color sensors you have here!
 
