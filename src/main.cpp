@@ -13,6 +13,7 @@
 #define LEFT 20
 #define RIGHT 21
 #define NONE 22
+#define STOP 23
 
 #define carSpeed 165
 
@@ -153,20 +154,34 @@ int readColor()
     // Serial.print(int(blue));
     // Serial.print("\n");
 
-    if (i == 0 && findColor(red, green, blue) == RED)
+    if (i == 0)
     {
-      return LEFT;
+      if (findColor(red, green, blue) == RED)
+      {
+        return LEFT;
+      }
+      if (findColor(red, green, blue) == GREEN)
+      {
+        return STOP;
+      }
     }
-    if (i == 3 && findColor(red, green, blue) == RED)
+    if (i == 3)
     {
-      return RIGHT;
+      if (findColor(red, green, blue) == RED)
+      {
+        return RIGHT;
+      }
+      if (findColor(red, green, blue) == GREEN)
+      {
+        return STOP;
+      }
     }
   }
   return NONE;
 }
 
 float vt[NMOTORS] = {0, 0};
-#define SPEED 25;
+int SPEED = 15;
 void forward()
 {
   vt[0] = -SPEED;
@@ -177,7 +192,7 @@ void forward()
   // digitalWrite(IN2, HIGH);
   // digitalWrite(IN3, LOW);
   // digitalWrite(IN4, HIGH);
-  Serial.println("Forward");
+  // Serial.println("Forward");
 }
 
 void backword()
@@ -190,7 +205,7 @@ void backword()
   // digitalWrite(IN2, LOW);
   // digitalWrite(IN3, HIGH);
   // digitalWrite(IN4, LOW);
-  Serial.println("Back");
+  // Serial.println("Back");
 }
 
 void left()
@@ -204,7 +219,7 @@ void left()
   // digitalWrite(IN2, HIGH);
   // digitalWrite(IN3, HIGH);
   // digitalWrite(IN4, LOW);
-  Serial.println("Left");
+  // Serial.println("Left");
 }
 
 void right()
@@ -217,13 +232,12 @@ void right()
   // digitalWrite(IN2, LOW);
   // digitalWrite(IN3, LOW);
   // digitalWrite(IN4, HIGH);
-  Serial.println("Right");
+  // Serial.println("Right");
 }
 
 void stop()
 {
-  digitalWrite(ENA, LOW);
-  digitalWrite(ENB, LOW);
+  SPEED = 0;
 }
 
 void setup()
@@ -319,6 +333,9 @@ void loop()
     break;
   case RIGHT:
     right();
+    break;
+  case STOP:
+    stop();
     break;
   default:
     forward();
