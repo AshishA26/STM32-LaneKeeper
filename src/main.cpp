@@ -158,7 +158,7 @@ int readColor()
     {
       if (findColor(red, green, blue) == RED)
       {
-        return LEFT;
+        return RIGHT;
       }
       if (findColor(red, green, blue) == GREEN)
       {
@@ -169,7 +169,7 @@ int readColor()
     {
       if (findColor(red, green, blue) == RED)
       {
-        return RIGHT;
+        return LEFT;
       }
       if (findColor(red, green, blue) == GREEN)
       {
