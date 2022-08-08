@@ -2,7 +2,7 @@
 A robotic vehicle with the purpose of lane keeping and eventually stopping in the "parking spot".
 It uses 4 color sensors on the bottom of the vehicle and is currently programmed to stay between the 2 red lines (which acts as a lane), and stop at the dark green (which acts as a parking spot).
 
-Programmed in `PlatformIO`. Uses an `STM32`, a `PID` class for smoother motion, and `I2C` communication protocol.
+Programmed in `PlatformIO` using an `STM32`, a `PID` class for smoother motion, and `I2C` communication protocol.
 
 Some very short demos below (click on each one to visit the full video):
 [![Link to youtube video](./Images/LaneKeeperGif1.gif)](https://www.youtube.com/watch?v=J9wu3cg9o0I)
