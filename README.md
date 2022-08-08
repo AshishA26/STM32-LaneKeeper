@@ -1,4 +1,4 @@
-# LaneKeeper
+# STM32-LaneKeeper
 A robotic vehicle with the purpose of lane keeping and eventually stopping in the "parking spot".
 It uses 4 color sensors on the bottom of the vehicle and is currently programmed to stay between the 2 red lines (which acts as a lane), and stop at the dark green (which acts as a parking spot).
 
